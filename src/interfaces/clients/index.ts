@@ -19,3 +19,11 @@ export interface IClientAllData {
   isActive: string;
   createdAt: Date;
 }
+
+export interface IClientUpdate {
+  fullName?: string;
+  email?: string;
+  cellphone?: string;
+  password?: string;
+  isActive?: boolean;
+}

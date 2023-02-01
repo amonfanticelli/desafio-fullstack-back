@@ -25,7 +25,6 @@ const ensureAuthMiddleware = async (
     }
 
     req.client = {
-      isAdm: decoded.isAdm,
       id: decoded.sub,
     };
 
