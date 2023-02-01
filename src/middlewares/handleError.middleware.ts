@@ -19,4 +19,4 @@ const handleErrorMiddleware = async (
   });
 };
 
-export default handleErrorMiddleware;
+export { handleErrorMiddleware };

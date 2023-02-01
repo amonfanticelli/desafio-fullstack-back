@@ -32,4 +32,4 @@ const ensureAuthMiddleware = async (
   });
 };
 
-export default ensureAuthMiddleware;
+export { ensureAuthMiddleware };
