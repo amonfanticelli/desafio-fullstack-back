@@ -26,4 +26,5 @@ export interface IClientUpdate {
   cellphone?: string;
   password?: string;
   isActive?: boolean;
+  createdAt?: Date;
 }

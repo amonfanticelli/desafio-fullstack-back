@@ -1,13 +1,13 @@
 import { AppDataSource } from "../../data-source";
 import { Contact } from "../../entities/contacts.entities";
-import { IClientRequest } from "../../interfaces/clients";
+import { IContactRequest } from "../../interfaces/contacts";
 import { AppError } from "../../errors/appError";
 
-const createClientService = async ({
+const createContactService = async ({
   fullName,
   email,
   cellphone,
-}: IClientRequest): Promise<Contact> => {
+}: IContactRequest): Promise<Contact> => {
   const contactRepository = AppDataSource.getRepository(Contact);
 
   const contactAlreadyExists = await contactRepository.findOneBy({
@@ -34,4 +34,4 @@ const createClientService = async ({
   return contact;
 };
 
-export default createClientService;
+export { createContactService };

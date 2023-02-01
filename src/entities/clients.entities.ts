@@ -25,7 +25,7 @@ export class Client {
   @Column()
   createdAt: Date;
 
-  @OneToMany(() => Contact, (contact) => contact.client)
+  @OneToMany(() => Contact, (contact) => contact.client, { eager: true })
   contacts: Contact[];
 
   constructor() {

@@ -2,17 +2,17 @@ import { AppDataSource } from "../../data-source";
 import { Client } from "../../entities/clients.entities";
 import { AppError } from "../../errors/appError";
 
-const softDeleteUserService = async (id: string): Promise<void> => {
+const softDeleteClientService = async (id: string): Promise<void> => {
   const clientRepository = AppDataSource.getRepository(Client);
   const client = await clientRepository.findOneBy({
     id: id,
   });
   if (!client) {
-    throw new AppError("client not found!", 404);
+    throw new AppError("user not found!", 404);
   }
 
   if (!client.isActive) {
-    throw new AppError("client already soft deleted");
+    throw new AppError("user already soft deleted");
   }
 
   await clientRepository.update(id, {
@@ -20,4 +20,4 @@ const softDeleteUserService = async (id: string): Promise<void> => {
   });
 };
 
-export default softDeleteUserService;
+export { softDeleteClientService };

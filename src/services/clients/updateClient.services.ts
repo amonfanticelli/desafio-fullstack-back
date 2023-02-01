@@ -4,7 +4,7 @@ import { IClientUpdate } from "../../interfaces/clients";
 import { AppError } from "../../errors/appError";
 import { hash } from "bcrypt";
 
-const updateUserService = async (
+const updateClientService = async (
   { fullName, email, cellphone, password, isActive }: IClientUpdate,
   id: string,
   bodyId: string
@@ -36,4 +36,4 @@ const updateUserService = async (
   return updatedClient!;
 };
 
-export default updateUserService;
+export { updateClientService };

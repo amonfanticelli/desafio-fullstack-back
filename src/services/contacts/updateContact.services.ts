@@ -1,10 +1,10 @@
 import { AppDataSource } from "../../data-source";
 import { Contact } from "../../entities/contacts.entities";
-import { IClientUpdate } from "../../interfaces/clients";
+import { IContactUpdate } from "../../interfaces/contacts";
 import { AppError } from "../../errors/appError";
 
 const updateContactService = async (
-  { fullName, email, cellphone, isActive }: IClientUpdate,
+  { fullName, email, cellphone, createdAt }: IContactUpdate,
   id: string,
   bodyId: string
 ): Promise<Contact> => {
@@ -13,7 +13,7 @@ const updateContactService = async (
     id: id,
   });
 
-  if (isActive !== undefined || bodyId !== undefined) {
+  if (createdAt !== undefined || bodyId !== undefined) {
     throw new AppError("Cannot update isActive or Id properties", 401);
   }
 
@@ -34,4 +34,4 @@ const updateContactService = async (
   return updatedContact!;
 };
 
-export default updateContactService;
+export { updateContactService };

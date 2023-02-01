@@ -15,7 +15,7 @@ const ensureIsAdmMiddleware = async (
   });
   const contactRepository = AppDataSource.getRepository(Contact);
   const contact = await contactRepository.findOneBy({
-    client: 
+    client: req.params.id
   });
   if (!req.client.id === contact?.id) {
    

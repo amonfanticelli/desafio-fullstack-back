@@ -9,4 +9,4 @@ const listClientsService = async (): Promise<Client[]> => {
   return clients;
 };
 
-export default listClientsService;
+export { listClientsService };

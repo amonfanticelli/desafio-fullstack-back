@@ -16,4 +16,4 @@ const deleteContactService = async (id: string): Promise<void> => {
   await contactRepository.delete(id);
 };
 
-export default deleteContactService;
+export { deleteContactService };

@@ -33,4 +33,4 @@ const createClientService = async ({
   return client;
 };
 
-export default createClientService;
+export { createClientService };

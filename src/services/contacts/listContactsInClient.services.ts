@@ -5,7 +5,7 @@ import { AppError } from "../../errors/appError";
 
 const listContactsInClientService = async (
   contactId: string
-): Promise<Contact[]> => {
+): Promise<Contact> => {
   const clientRepository = AppDataSource.getRepository(Client);
   const contactRepository = AppDataSource.getRepository(Contact);
 
@@ -25,4 +25,4 @@ const listContactsInClientService = async (
   return contacts;
 };
 
-export default listContactsInClientService;
+export { listContactsInClientService };
