@@ -10,6 +10,6 @@ const clientRoutes = Router();
 clientRoutes.post("", createClientController);
 clientRoutes.get("", ensureAuthMiddleware, listClientsController);
 clientRoutes.patch("", ensureAuthMiddleware, updateClientController);
-clientRoutes.patch("", ensureAuthMiddleware, softDeleteClientController);
+clientRoutes.delete("", ensureAuthMiddleware, softDeleteClientController);
 
 export { clientRoutes };

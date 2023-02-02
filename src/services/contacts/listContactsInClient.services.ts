@@ -4,25 +4,26 @@ import { Contact } from "../../entities/contacts.entities";
 import { AppError } from "../../errors/appError";
 
 const listContactsInClientService = async (
-  contactId: string
-): Promise<Contact> => {
+  clientId: string
+): Promise<Contact[]> => {
   const clientRepository = AppDataSource.getRepository(Client);
   const contactRepository = AppDataSource.getRepository(Contact);
 
-  const contacts = await contactRepository.findOne({
-    where: {
-      id: contactId,
-    },
-    relations: {
-      client: true,
-    },
+  const clients = await clientRepository.findOneBy({
+    id: clientId,
+    // where: {
+    //   id: contactId,
+    // },
+    // relations: {
+    //   client: true,
+    // },
   });
 
-  if (!contacts) {
+  if (!clients) {
     throw new AppError("Contact not found", 404);
   }
 
-  return contacts;
+  return clients.contacts;
 };
 
 export { listContactsInClientService };

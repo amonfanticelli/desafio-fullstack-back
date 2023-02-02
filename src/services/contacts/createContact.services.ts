@@ -2,14 +2,22 @@ import { AppDataSource } from "../../data-source";
 import { Contact } from "../../entities/contacts.entities";
 import { IContactRequest } from "../../interfaces/contacts";
 import { AppError } from "../../errors/appError";
+import { Client } from "../../entities/clients.entities";
 
-const createContactService = async ({
-  fullName,
-  email,
-  cellphone,
-}: IContactRequest): Promise<Contact> => {
+const createContactService = async (
+  { fullName, email, cellphone }: IContactRequest,
+  clientId: string
+): Promise<Contact> => {
   const contactRepository = AppDataSource.getRepository(Contact);
+  const clientRepository = AppDataSource.getRepository(Client);
 
+  const clientExists = await clientRepository.findOneBy({
+    id: clientId,
+  });
+
+  if (!clientExists) {
+    throw new AppError("User not found");
+  }
   const contactAlreadyExists = await contactRepository.findOneBy({
     email: email,
   });
@@ -24,14 +32,15 @@ const createContactService = async ({
     throw new AppError("Cellphone already exists");
   }
 
-  const contact = await contactRepository.create({
+  const contact = contactRepository.create({
     fullName,
     email,
     cellphone,
+    client: clientExists,
   });
   await contactRepository.save(contact);
 
-  return contact;
+  return { ...contact, fullName, email, cellphone };
 };
 
 export { createContactService };

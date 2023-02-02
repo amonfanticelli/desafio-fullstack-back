@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  CreateDateColumn,
+} from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Contact } from "./contacts.entities";
 
@@ -22,7 +28,7 @@ export class Client {
   @Column({ default: true })
   isActive: boolean;
 
-  @Column()
+  @CreateDateColumn()
   createdAt: Date;
 
   @OneToMany(() => Contact, (contact) => contact.client, { eager: true })

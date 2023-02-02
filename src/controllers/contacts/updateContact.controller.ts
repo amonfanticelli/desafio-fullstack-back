@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
-import { updateClientService } from "../../services/clients/updateClient.services";
+import { updateContactService } from "../../services/contacts/updateContact.services";
 
 const updateContactController = async (req: Request, res: Response) => {
   //   const { id } = req.params;
-  const updatedClient = await updateClientService(
+  const updatedClient = await updateContactService(
     req.body,
-    req.client.id,
+    req.params.id,
     req.body.id
   );
   return res.json(updatedClient);
