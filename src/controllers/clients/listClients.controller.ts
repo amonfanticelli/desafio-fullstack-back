@@ -7,4 +7,4 @@ const listClientsController = async (req: Request, res: Response) => {
   return res.json(clients);
 };
 
-export default listClientsController;
+export { listClientsController };

@@ -40,7 +40,7 @@ const createContactService = async (
   });
   await contactRepository.save(contact);
 
-  return { ...contact, fullName, email, cellphone };
+  return contact;
 };
 
 export { createContactService };

@@ -2,8 +2,8 @@ import { createSessionService } from "../../services/sessions/createSession.serv
 import { Request, Response } from "express";
 
 const createSessionController = async (req: Request, res: Response) => {
-  const token = await createSessionService(req.body);
-  return res.json({ token });
+  const data = await createSessionService(req.body);
+  return res.json(data);
 };
 
 export { createSessionController };

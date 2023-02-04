@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/contacts", contactRoutes);
-app.use("/users", clientRoutes);
+app.use("", clientRoutes);
 app.use("/session", sessionRoutes);
 app.use(handleErrorMiddleware);
 

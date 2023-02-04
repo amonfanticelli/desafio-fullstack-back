@@ -8,7 +8,7 @@ import { Client } from "../../entities/clients.entities";
 const createSessionService = async ({
   email,
   password,
-}: IClientLogin): Promise<string> => {
+}: IClientLogin): Promise<object> => {
   const clientRepository = AppDataSource.getRepository(Client);
 
   const client = await clientRepository.findOneBy({
@@ -26,6 +26,9 @@ const createSessionService = async ({
     expiresIn: "24h",
     subject: client.id,
   });
-  return token;
+
+  const user = { client, token };
+
+  return user;
 };
 export { createSessionService };
