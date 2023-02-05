@@ -14,7 +14,7 @@ services:
     depends_on:
       docker_db:
         condition: service_healthy
-    command: bash -c "yarn typeorm migration:run -d src/data-source && yarn dev"
+    command: bash -c "npm run -- typeorm migration:run -d src/data-source && npm start"
 
   docker_db:
     container_name: postgres_database
