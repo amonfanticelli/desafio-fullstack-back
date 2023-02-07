@@ -19,7 +19,7 @@ export class Client {
   @Column({ unique: true })
   email: string;
 
-  @Column({ unique: true })
+  @Column()
   cellphone: string;
 
   @Column()

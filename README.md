@@ -15,3 +15,45 @@
 ## Teste as rotas insomnia:
 
 `utilize o arquivo workspace.json para testar as rotas da aplicação`
+
+## Rotas para testes:
+
+## POST `/users`
+
+`http://localhost:3001/users`
+
+## POST `/session`
+
+`http://localhost:3001/session`
+
+## GET `/user`
+
+`http://localhost:3001/user`
+
+## GET `/users`
+
+`http://localhost:3001/users`
+
+## PATCH `/users`
+
+`http://localhost:3001/users`
+
+## DELETE `/users`
+
+`http://localhost:3001/users`
+
+## POST `/contacts`
+
+`http://localhost:3001/contacts`
+
+## GET `/contacts`
+
+`http://localhost:3001/contacts`
+
+## PATCH `/contacts/:contact-id`
+
+`http://localhost:3001/contacts/:contact-id`
+
+## DELETE `/contacts`
+
+`http://localhost:3001/contacts/:contact-id`
