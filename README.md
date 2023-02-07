@@ -16,6 +16,10 @@
 
 `utilize o arquivo workspace.json para testar as rotas da aplicação`
 
+## A aplicação possui testes jests:
+
+`Rode npm run test`
+
 ## Rotas para testes:
 
 ## POST `/users`
