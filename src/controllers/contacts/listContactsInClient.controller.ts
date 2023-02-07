@@ -4,7 +4,7 @@ import { listContactsInClientService } from "../../services/contacts/listContact
 const listContactsInClientController = async (req: Request, res: Response) => {
   const createdContact = await listContactsInClientService(req.client.id);
 
-  return res.status(201).json(createdContact);
+  return res.status(200).json(createdContact);
 };
 
 export { listContactsInClientController };
